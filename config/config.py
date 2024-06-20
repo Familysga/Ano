@@ -39,7 +39,7 @@ CHANNEL_SUDO = getenv(
     "CHANNEL_SUDO", "L_Q7I"
 )  # ???? ????? ???? @
 YAFA_NAME = getenv(
-    "YAFA_NAME", ستورياتي"
+    "YAFA_NAME", "اسم قناتك"
 )  # ??? ?????
 YAFA_CHANNEL = getenv(
    " YAFA_CHANNEL", "https://t.me/L_Q7I"
