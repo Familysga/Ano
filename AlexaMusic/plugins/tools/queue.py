@@ -209,7 +209,9 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
         return await CallbackQuery.edit_message_text(msg, reply_markup=buttons)
 
 
-@app.on_callback_query(filters.regex("queue_back_timer") & ~BANNED_USERS)
+@app.on_message(
+filters.command(queue_back_timer,"")
+    & ~BANNED_USERS)
 @languageCB
 async def queue_back(client, CallbackQuery: CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
