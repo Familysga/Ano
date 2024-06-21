@@ -52,9 +52,7 @@ def get_duration(playing):
         return "Inline"
 
 
-@app.on_message(
-filters.command(QUEUE_COMMAND,"")
-    & ~BANNED_USERS)
+@app.on_message(filters.command(QUEUE_COMMAND) & filters.group & ~BANNED_USERS)
 @language
 async def ping_com(client, message: Message, _):
     if message.command[0][0] == "c":
@@ -209,9 +207,7 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
         return await CallbackQuery.edit_message_text(msg, reply_markup=buttons)
 
 
-@app.on_message(
-filters.command(queue_back_timer,"")
-    & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("queue_back_timer") & ~BANNED_USERS)
 @languageCB
 async def queue_back(client, CallbackQuery: CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
